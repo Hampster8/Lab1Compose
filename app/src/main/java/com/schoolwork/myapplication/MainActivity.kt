@@ -12,7 +12,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -35,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background) {
-                    PersonalInformation()
+                    App()
 
                 }
             }
@@ -45,16 +44,7 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    Lab1ComposeTheme {
-        PersonalInformation()
-
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PersonalInformation() {
+fun App() {
     val toggleInformation = remember { mutableStateOf(false) }
     val generateRandomInfo = stringArrayResource(id = R.array.information).random()
 
@@ -75,6 +65,7 @@ fun PersonalInformation() {
                 .padding(12.dp)
                 .matchParentSize()
                 .absoluteOffset(85.dp, 70.dp)) {
+
                 Text(if (toggleInformation.value) generateRandomInfo else generateRandomInfo,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold, color = Color.White)
@@ -83,7 +74,9 @@ fun PersonalInformation() {
         Image(painter = painterResource(id = R.drawable._00505_hampusandersson),
             contentDescription = "Hampus Andersson")
 
-        Button(onClick = { toggleInformation.value = !toggleInformation.value },
+        Button(onClick = {
+            toggleInformation.value = !toggleInformation.value
+        },
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = colorResource(R.color.customblue),
                 contentColor = Color.White)) {
