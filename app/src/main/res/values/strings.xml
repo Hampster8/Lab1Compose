@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Lab1Compose</string>
+    <string-array name="information">
+        <item>I live in Ystad.</item>
+        <item>I wrote my first line of code\n two years ago.</item>
+        <item>Someone has written a Wikipedia\n page about me.</item>
+        <item>I am a type one diabetic.</item>
+        <item>I have made my living playing\n professional sports for 14 years.</item>
+        <item>I have a French Bulldog named Harley.</item>
+        <item>I prefer books over online\n resources as a learning tool.</item>
+        <item>I am a huge Harry Potter fanatic.</item>
+        <item>I want to find a workplace where\n I feel that I make a difference.</item>
+        <item>My favorite color is beige.</item>
+    </string-array>
+</resources>
