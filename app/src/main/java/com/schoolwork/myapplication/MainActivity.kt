@@ -110,7 +110,6 @@ fun App() {
         Button(onClick = {
             showInformation = true
             toggleInformation = !toggleInformation
-
         },
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = colorResource(R.color.customblue),
@@ -120,7 +119,6 @@ fun App() {
             } else {
                 Text(text = "Ask me again!")
             }
-
         }
     }
 }
