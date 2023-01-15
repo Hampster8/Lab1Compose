@@ -6,8 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -76,12 +79,13 @@ fun App() {
     var toggleInformation by remember { mutableStateOf(false) }
     var showInformation by remember { mutableStateOf(false) }
     val generateRandomInfo = stringArrayResource(R.array.information).random()
+    val orientation = Orientation.Vertical // or Orientation.Landscape
 
-    Column(Modifier
+    Column(Modifier.verticalScroll(rememberScrollState())
         .background(Brush.verticalGradient(colors = listOf(
             Color.Transparent, colorResource(R.color.customblue)), startY = 199f)),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        verticalArrangement = if (orientation == Orientation.Horizontal) Arrangement.Center else Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally)  {
         if (showInformation) {
             Box(modifier = Modifier) {
                 Image(painter = painterResource(R.drawable.lab1chatbubble),
